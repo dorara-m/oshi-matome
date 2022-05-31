@@ -1,10 +1,31 @@
 <template>
   <div class="detail">
-    <h1>oshi - 詳細</h1>
-    <p>id: {{$route.params.id}}</p>
-    <p>title: {{cmsData.title}}</p>
+    <div class="head">
+      <h1>{{cmsData.title}}</h1>
+      <p>nekomata okayu</p>
+      <img src="" alt="">
+    </div>
+    <div class="points">
+      <a href="http://" target="_blank" rel="noopener noreferrer">公式プロフィール</a>
+      <p>推し歴：1000日</p>
+      <div class="stars">
+        <div class="stars_item">声の良さ：★★★★★</div>
+        <div class="stars_item">平和な言葉遣い：★★★★★</div>
+        <div class="stars_item">ボクっ娘：★★★★★</div>
+      </div>
+    </div>
+    <div class="richArea"></div>
+    <div class="movieArea">
+      <div class="title">オススメ動画</div>
+      <ul>
+        <li>動画サムネつき1</li>
+        <li>動画サムネつき2</li>
+        <li>動画サムネつき3</li>
+      </ul>
+    </div>
   </div>
 </template>
+
 
 <script setup>
 import axios from 'axios'
@@ -16,9 +37,19 @@ axios.get(`https://uma-chat.microcms.io/api/v1/blog/${route.params.id}`, {
 })
   .then((response) => {
     cmsData.value = response.data
-    // console.log(response.data)
+    console.log(response.data)
   })
   .catch(error => {
     console.log(error);
   });
 </script>
+
+
+<style lang="scss" scoped>
+.head {
+  font-size: 20px;
+  h1 {
+    color: rebeccapurple;
+  }
+}
+</style>
