@@ -1,0 +1,32 @@
+$color-black: #090a0c;
+$color-red: #e91525;
+$color-blue: #00aaeb;
+$color-border: #e5e5e5;
+
+// media query
+$breakpoint-up: (
+  // min-width
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1052px)',
+  'xl': 'screen and (min-width: 1200px)'
+) !default;
+$breakpoint-down: (
+  // max-width
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 1051px)',
+  'xl': 'screen and (max-width: 1199px)'
+) !default;
+@mixin mq($breakpoint: xl) {
+  //メインで使用するブレイクポイントを指定
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-down($breakpoint: xl) {
+  //メインで使用するブレイクポイントを指定
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}

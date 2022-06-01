@@ -1,28 +1,31 @@
 <template>
   <div class="detail">
-    <div class="head">
-      <h1>{{cmsData.title}}</h1>
-      <p>nekomata okayu</p>
-      <img src="" alt="">
-    </div>
-    <div class="points">
-      <a href="http://" target="_blank" rel="noopener noreferrer">公式プロフィール</a>
-      <p>推し歴：1000日</p>
-      <div class="stars">
-        <div class="stars_item">声の良さ：★★★★★</div>
-        <div class="stars_item">平和な言葉遣い：★★★★★</div>
-        <div class="stars_item">ボクっ娘：★★★★★</div>
+    <Container>
+      <div class="head">
+        <h1>{{cmsData.title}}</h1>
+        <p>Oguri cap</p>
+        <img src="/images/oguri.jpg" alt="">
+        <div class="label">急上昇↑</div>
       </div>
-    </div>
-    <div class="richArea"></div>
-    <div class="movieArea">
-      <div class="title">オススメ動画</div>
-      <ul>
-        <li>動画サムネつき1</li>
-        <li>動画サムネつき2</li>
-        <li>動画サムネつき3</li>
-      </ul>
-    </div>
+      <div class="points">
+        <a href="http://" target="_blank" rel="noopener noreferrer">公式プロフィール</a>
+        <p>推し歴：1000日</p>
+        <div class="stars">
+          <div class="stars_item">声の良さ：★★★★★</div>
+          <div class="stars_item">平和な言葉遣い：★★★★★</div>
+          <div class="stars_item">ボクっ娘：★★★★★</div>
+        </div>
+      </div>
+      <div class="richArea"></div>
+      <div class="movieArea">
+        <div class="title">オススメ動画</div>
+        <ul>
+          <li>動画サムネつき1</li>
+          <li>動画サムネつき2</li>
+          <li>動画サムネつき3</li>
+        </ul>
+      </div>
+    </Container>
   </div>
 </template>
 
@@ -46,10 +49,35 @@ axios.get(`https://uma-chat.microcms.io/api/v1/blog/${route.params.id}`, {
 
 
 <style lang="scss" scoped>
+.detail {
+  padding: 50px 0;
+}
+
 .head {
-  font-size: 20px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  position: relative;
   h1 {
-    color: rebeccapurple;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  p {
+    margin-top: -20px;
+    font-size: 16px;
+  }
+  img {
+    width: 90px;
+    border-radius: 50%;
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+  }
+  .label {
+    color: #FD1515;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
 </style>
